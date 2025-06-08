@@ -41,6 +41,10 @@ void set_status(const char* token, const char* name)
         headers = curl_slist_append(headers, USER_AGENT);
         headers = curl_slist_append(headers, "Content-Type: application/json");
 
+        // If OpenSSL is not available, you may need to ignore SSL verification as 
+        // Windows native SSL does not seem to trust github.com
+        # curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+        # curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);        
         curl_easy_setopt(curl, CURLOPT_URL, GITHUB_API_ENDPOINT);
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, query);
