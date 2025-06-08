@@ -9,14 +9,14 @@ const char * get_os_name()
     HMODULE hMod = GetModuleHandleW(L"ntdll.dll");
     if (!hMod)
     {
-        perror("Cannot load htdll.dll\n");
+        perror("Cannot load htdll.dll");
         return NULL;
     }
 
     RtlGetVersionPtr fxPtr = (RtlGetVersionPtr)GetProcAddress(hMod, "RtlGetVersion");
     if (!fxPtr)
     {
-        perror("Cannot find RtlGetVersion function\n");
+        perror("Cannot find RtlGetVersion function");
         return NULL;
     }
 
@@ -34,7 +34,7 @@ const char * get_os_name()
         return name;
     }
 
-    perror("Cannot recognise system.\n");
+    perror("Cannot recognise system");
     return NULL;
 }
 

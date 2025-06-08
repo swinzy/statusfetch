@@ -12,7 +12,7 @@ const char * get_os_name()
     FILE *fp = fopen(LINUX_OS_RELEASE, "r");
     if (!fp) 
     {
-        perror("Cannot recognise system. No os-release\n");
+        perror("Cannot recognise system. No os-release");
         return NULL;
     }
 
@@ -32,7 +32,7 @@ const char * get_os_name()
 
     if (!name[0]) 
     {
-        perror("Cannot recognise system. No PRETTY_NAME defined\n");
+        perror("Cannot recognise system. No PRETTY_NAME defined");
         return NULL;
     }
 
