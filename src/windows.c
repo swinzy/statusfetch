@@ -23,7 +23,7 @@ const char * get_os_name()
     RTL_OSVERSIONINFOW rovi = {0};
     rovi.dwOSVersionInfoSize = sizeof(rovi);
 
-    static char name[128] = {0}
+    static char name[128] = {0};
     if (fxPtr(&rovi) == 0)
     {
         snprintf(name, sizeof(name), "Windows %lu.%lu.%lu", 
