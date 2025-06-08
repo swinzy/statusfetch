@@ -15,7 +15,10 @@ else()
     message(FATAL_ERROR "Unsupported OS: ${CMAKE_SYSTEM_NAME}")
 endif()
 
+find_package(CURL REQUIRED)
+
 add_executable(statusfetch ${SOURCES})
 
 target_include_directories(statusfetch PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(statusfetch PRIVATE ${CURL_LIBRARIES})
 

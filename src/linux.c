@@ -7,7 +7,7 @@
 #define LINUX_NAME_FORMAT       "PRETTY_NAME=\"%127[^\"]\""
 #define LINUX_NAME_FIELD_N      12
 
-const char * get_os_name()
+const char *get_os_name()
 {
     FILE *fp = fopen(LINUX_OS_RELEASE, "r");
     if (!fp) 
@@ -32,7 +32,7 @@ const char * get_os_name()
 
     if (!name[0]) 
     {
-        perror("Cannot recognise system. No PRETTY_NAME defined");
+        fprintf(stderr, "Cannot recognise system. No PRETTY_NAME defined\n");
         return NULL;
     }
 

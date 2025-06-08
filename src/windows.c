@@ -2,21 +2,21 @@
 #include <stdio.h>
 #include "os.h"
 
-typedef LONG (WINAPI * RtlGetVersionPtr) (PRTL_OSVERSIONINFOW);
+typedef LONG (WINAPI *RtlGetVersionPtr) (PRTL_OSVERSIONINFOW);
 
-const char * get_os_name()
+const char *get_os_name()
 {
     HMODULE hMod = GetModuleHandleW(L"ntdll.dll");
     if (!hMod)
     {
-        perror("Cannot load htdll.dll");
+        fprintf(stderr, "Cannot load htdll.dll\n");
         return NULL;
     }
 
     RtlGetVersionPtr fxPtr = (RtlGetVersionPtr)GetProcAddress(hMod, "RtlGetVersion");
     if (!fxPtr)
     {
-        perror("Cannot find RtlGetVersion function");
+        fprintf(stderr, "Cannot find RtlGetVersion function\n");
         return NULL;
     }
 
@@ -34,7 +34,7 @@ const char * get_os_name()
         return name;
     }
 
-    perror("Cannot recognise system");
+    fprintf(stderr, "Cannot recognise system\n");
     return NULL;
 }
 
