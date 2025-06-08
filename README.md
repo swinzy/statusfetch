@@ -1,5 +1,5 @@
-# StatusFetch
-### Automatically fetch your OS and update your Github status!
+# Status Fetch
+### Automatically update your Github status according to the OS you are using!
 
 ## Requirement
 - `libcurl`
