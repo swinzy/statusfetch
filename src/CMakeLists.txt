@@ -15,7 +15,7 @@ else()
     message(FATAL_ERROR "Unsupported OS: ${CMAKE_SYSTEM_NAME}")
 endif()
 
-add_executable(status_fetch ${SOURCES})
+add_executable(statusfetch ${SOURCES})
 
-target_include_directories(status_fetch PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(statusfetch PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
